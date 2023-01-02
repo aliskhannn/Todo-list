@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Todo App</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<div class="main">
+			<div class="container">
+				<div class="main__wrapper">
+
+					<h1 class="title">To-do List</h1>
+
+					<form id="form">
+						<div id="add-task" class="add-task">
+							<input type="text" id="task-input" class="task-input" placeholder="What do you have planned today?" autocomplete="off">
+						</div>
+						<button type="submit" id="add-btn" class="add-btn">Add</button>
+					</form>
+
+					<div class="tabs">
+						<ul class="tabs-menu">
+							<li class="tabs-item" data-tab="my-day">My day</li>
+							<li class="tabs-item" data-tab="important">Important</li>
+							<li class="tabs-item" data-tab="completed">Completed</li>
+							<li class="tabs-item" data-tab="deleted">Deleted</li>
+						</ul>
+					</div>
+
+					<div class="tasks">
+
+						<div id="my-day" class="task-block _show">
+
+							<p class="tasks-empty">No tasks for today</p>
+
+						</div>
+
+						<div id="important" class="task-block">
+
+							<p class="tasks-empty">No important tasks</p>
+
+						</div>
+
+						<div id="completed" class="task-block">
+
+							<p class="tasks-empty">No completed tasks</p>
+
+						</div>
+
+						<div id="deleted" class="task-block">
+
+							<p class="tasks-empty">No deleted tasks</p>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>
