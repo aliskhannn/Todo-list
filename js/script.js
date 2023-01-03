@@ -35,6 +35,8 @@ tabsBtn.forEach(elem => {
 		let currentBtn = elem;
 		let tabsId = currentBtn.getAttribute('data-tab');
 		let currentTab = document.querySelector(`#${tabsId}`);
+		// let currentTabId = currentTab.getAttribute('data-text');
+		// let currentTabText = document.querySelector(`#${currentTabId}`);
 
 		if (!currentBtn.classList.contains('_active')) {
 			tabsBtn.forEach(elem => {
@@ -48,6 +50,13 @@ tabsBtn.forEach(elem => {
 			currentBtn.classList.add('_active');
 			currentTab.classList.add('_show');
 		}
+
+		// if(currentTab.children.length > 1) {
+		// 	currentTabText.classList.add('none');
+		// }
+
+		// console.log(currentTab.children.length);
+		// console.log(currentTabText);
 	});
 });
 
@@ -90,7 +99,7 @@ function addTask(event) {
 	// Очищаем поле ввода и добавляем на него фокус
 	taskInput.value = '';
 	taskInput.focus();
-
+	showAndHideText();
 }
 
 function deleteTask(event) {
@@ -103,6 +112,7 @@ function deleteTask(event) {
 	}
 
 	// Если список пуст, отображаем текст "To-list is empty"
+	showAndHideText();
 }
 
 function restoreTask(event) {
@@ -113,6 +123,9 @@ function restoreTask(event) {
 		myDay.insertAdjacentHTML("beforeend", parentNodeContent);
 		parentNode.remove();
 	}
+
+	// Если список пуст, отображаем текст "To-list is empty"
+	showAndHideText();
 }
 
 function completeTask(event) {
@@ -123,6 +136,7 @@ function completeTask(event) {
 		completed.insertAdjacentHTML('beforeend', parentNodeContent);
 		parentNode.remove();
 	}
+	showAndHideText();
 }
 
 function markAsImporatant(event) {
@@ -133,6 +147,8 @@ function markAsImporatant(event) {
 		important.insertAdjacentHTML('beforeend', parentNodeContent);
 		parentNode.remove();
 	}
+
+	showAndHideText();
 }
 
 function unMarkAsImporatant(event) {
@@ -143,8 +159,19 @@ function unMarkAsImporatant(event) {
 		myDay.insertAdjacentHTML('beforeend', parentNodeContent);
 		parentNode.remove();
 	}
+	showAndHideText();
 }
 
-function hideAndShowText() {
-	
+// Функция скрытия и показа текста "Список дел пуст" по мере добавления/удаления задач
+function showAndHideText() {
+	taskItem.forEach(item => {
+		let currentTabId = item.getAttribute('data-text');
+		let currentTabText = document.querySelector(`#${currentTabId}`);
+
+		if(item.children.length > 1) {
+			currentTabText.classList.add('none');
+		} else if(item.children.length === 1) {
+			currentTabText.classList.remove('none');
+		}
+	});
 }
